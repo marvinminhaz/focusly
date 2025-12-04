@@ -36,8 +36,8 @@ body {
 
 .site-title {
     text-align: center;
-    text-transform: uppercase;
-    margin-bottom: 1.5rem;
+    text-transform: lowercase;
+    margin-bottom: 2rem;
 }
 
 .input-group {
