@@ -4,13 +4,93 @@
     padding: 0;
 }
 
+
+/* definig colors for reusing it  */
+:root {
+    --bg-primary: #f5f5f5;
+    --bg-secondary: #c8fae9;
+    --border-color: #333;
+    --text-primary: #333;
+    --text-secondary: #999;
+    --accent: #00a67e;
+    --accent-hover: #008c69;
+    --task-bg: white;
+    --task-border: #ddd;
+    --task-hover: #f9f9f9;
+}
+
+/* Adding themes */
+[data-theme="tokyo-night"] {
+    --bg-primary: #1a1b26;
+    --bg-secondary: #24283b;
+    --border-color: #414868;
+    --text-primary: #c0caf5;
+    --text-secondary: #565f89;
+    --accent: #7aa2f7;
+    --accent-hover: #5f8dd3;
+    --task-bg: #1f2335;
+    --task-border: #414868;
+    --task-hover: #292e42;
+}
+
+[data-theme="solarized"] {
+    --bg-primary: #fdf6e3;
+    --bg-secondary: #eee8d5;
+    --border-color: #93a1a1;
+    --text-primary: #586e75;
+    --text-secondary: #93a1a1;
+    --accent: #268bd2;
+    --accent-hover: #2075b8;
+    --task-bg: #fdf6e3;
+    --task-border: #93a1a1;
+    --task-hover: #eee8d5;
+}
+
+[data-theme="nord"] {
+    --bg-primary: #2e3440;
+    --bg-secondary: #3b4252;
+    --border-color: #4c566a;
+    --text-primary: #eceff4;
+    --text-secondary: #81a1c1;
+    --accent: #88c0d0;
+    --accent-hover: #6fa8b8;
+    --task-bg: #434c5e;
+    --task-border: #4c566a;
+    --task-hover: #3b4252;
+}
+
+[data-theme="rose-pink"] {
+    --bg-primary: #fff0f5;
+    /* Lavender blush - soft pink background */
+    --bg-secondary: #ffe4e9;
+    /* Rose quartz - delicate pink */
+    --border-color: #d4748c;
+    /* Dusty rose - elegant borders */
+    --text-primary: #4a2c3d;
+    /* Deep plum - sophisticated text */
+    --text-secondary: #b88b9d;
+    /* Mauve - muted secondary text */
+    --accent: #e75480;
+    /* Rose pink - vibrant accent */
+    --accent-hover: #d4446e;
+    /* Deep rose - hover state */
+    --task-bg: #fff5f8;
+    /* Blush white - clean task background */
+    --task-border: #f4c2cc;
+    /* Light rose - subtle borders */
+    --task-hover: #ffe9ee;
+    /* Soft pink - gentle hover effect */
+}
+
+
 body {
-    background-color: rgb(249, 226, 195);
+    background-color: var(--bg-primary);
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     padding: 1rem;
+    transition: all 0.3s ease;
 }
 
 .open-sans {
@@ -24,21 +104,74 @@ body {
 
 .container {
     padding: 2rem;
-    border: 2px solid black;
+    border: 2px solid var(--border-color);
     border-radius: 8px;
-    background-color: #a4f3d8;
+    background-color: var(--bg-secondary);
     width: 100%;
     max-width: 800px;
     min-height: 400px;
     height: auto;
-
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
 }
 
 .site-title {
     text-align: center;
     text-transform: lowercase;
     margin-bottom: 2rem;
+    color: var(--text-primary);
 }
+
+
+.theme-switcher {
+    display: flex;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-top: 1rem;
+}
+
+.theme-btn {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.theme-btn:hover {
+    transform: scale(1.1);
+    border-color: var(--text-primary);
+}
+
+.theme-btn.active {
+    border-color: var(--text-primary);
+    box-shadow: 0 0 0 2px var(--bg-secondary);
+}
+
+.theme-btn[data-theme="default"] {
+    background: linear-gradient(135deg, #c8fae9 0%, #7dd3c0 100%);
+}
+
+.theme-btn[data-theme="tokyo-night"] {
+    background: linear-gradient(135deg, #7aa2f7 0%, #bb9af7 100%);
+}
+
+.theme-btn[data-theme="solarized"] {
+    background: linear-gradient(135deg, #268bd2 0%, #b58900 100%);
+}
+
+.theme-btn[data-theme="nord"] {
+    background: linear-gradient(135deg, #88c0d0 0%, #81a1c1 100%);
+}
+
+.theme-btn[data-theme="rose-pink"] {
+    background: linear-gradient(135deg, #e75480 0%, #f4a6c3 100%);
+}
+
+
+
 
 .input-group {
     margin-bottom: 1.5rem;
@@ -51,15 +184,28 @@ body {
 .input-group input {
     flex: 1;
     padding: 0.75rem;
-    border: 2px solid #333;
+    border: 2px solid var(--border-color);
     border-radius: 6px;
     font-family: inherit;
     font-size: 1rem;
+    background-color: var(--task-bg);
+    color: var(--text-primary);
+    transition: border-color 0.3s;
+}
+
+
+.input-group input:focus {
+    outline: none;
+    border-color: var(--accent);
+}
+
+.input-group input::placeholder {
+    color: var(--text-secondary);
 }
 
 .add-btn {
     padding: 0.75rem 1.5rem;
-    border: 2px solid #333;
+    border: none;
     border-radius: 6px;
     background-color: #00a67e;
     color: white;
@@ -70,12 +216,17 @@ body {
 }
 
 .add-btn:hover {
-    background-color: #008866;
+    background-color: var(--accent-hover);
 }
 
 .add-btn:active {
     transform: scale(0.8);
 }
+
+.sub-title h4 {
+    color: var(--text-primary);
+}
+
 
 .list-group {
     display: flex;
@@ -89,31 +240,33 @@ body {
     align-items: center;
     gap: 0.75rem;
     padding: 0.75rem;
-    background-color: antiquewhite;
-    border: 1px solid #ddd;
+    background-color: var(--task-bg);
+    border: 1px solid var(--task-border);
     border-radius: 4px;
     transition: background-color 0.2s;
     cursor: pointer;
 }
 
 .task-item:hover {
-    background-color: #faebd7;
+    background-color: var(--task-hover);
 }
 
 .task-item input[type="checkbox"] {
     width: 1.25rem;
     height: 1.25rem;
     cursor: pointer;
+    accent-color: var(--accent);
 }
 
-task-item p {
+.task-item p {
+    color: var(--text-primary);
     flex: 1;
     margin: 0;
 }
 
-.task-item input[type="checkbox"]:checked + p{
+.task-item input[type="checkbox"]:checked+p {
     text-decoration: line-through;
-    color: #999;
+    color: var(--text-secondary);
 }
 
 @media (max-width: 640px) {

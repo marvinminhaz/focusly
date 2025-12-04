@@ -16,13 +16,13 @@ let count = 0;
 function addTask() {
     const taskText = input.value.trim();
 
-    if (taskText !== ''){
+    if (taskText !== '') {
         count++;
     }
-    
+
     console.log(count);
 
-    
+
 
 
     //conditional to replace the "add your first task" statement on addition of first task and creating new elements after the first task
@@ -81,3 +81,52 @@ function eol(e) {
 //event listening click and enter
 addBtn.addEventListener('click', addTask);
 input.addEventListener('keydown', eol);
+
+
+
+
+
+//Themeing
+
+//selecting items
+const themeBtns = document.querySelectorAll('.theme-btn');
+const body = document.body;
+
+//load saved themes
+const savedTheme = localStorage.getItem('theme') || 'default';
+
+if (savedTheme !== 'default') {
+    body.setAttribute('data-theme', savedTheme);
+}
+
+
+//Update Active button on load
+
+themeBtns.forEach(btn => {
+    if (btn.dataset.theme === savedTheme) {
+        btn.classList.add('active');
+    } else {
+        btn.classList.remove('active');
+    }
+});
+
+//Theme switcher
+themeBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+        const theme = btn.dataset.theme;
+
+        // Update active state
+        themeBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        // Apply theme
+        if (theme === 'default') {
+            body.removeAttribute('data-theme');
+        } else {
+            body.setAttribute('data-theme', theme);
+        }
+
+        // Save preference
+        localStorage.setItem('theme', theme);
+    });
+});
