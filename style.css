@@ -9,6 +9,7 @@
 :root {
     --bg-primary: #f5f5f5;
     --bg-secondary: #c8fae9;
+    --bg-tertiary: #1cbd8761;
     --border-color: #333;
     --text-primary: #333;
     --text-secondary: #999;
@@ -18,6 +19,9 @@
     --task-border: #ddd;
     --task-hover: #f9f9f9;
     --btn-primary: #00a67e;
+    --counter-bg: #b8f3df;
+    --counter-text: #00a67e;
+    --counter-border: #7dd3c0;
 }
 
 /* Adding themes */
@@ -32,6 +36,9 @@
     --task-bg: #1f2335;
     --task-border: #414868;
     --task-hover: #292e42;
+    --counter-bg: #414868;
+    --counter-text: #7aa2f7;
+    --counter-border: #565f89;
 }
 
 [data-theme="solarized"] {
@@ -45,6 +52,9 @@
     --task-bg: #fdf6e3;
     --task-border: #93a1a1;
     --task-hover: #eee8d5;
+    --counter-bg: #fdf6e3;
+    --counter-text: #268bd2;
+    --counter-border: #93a1a1;
 }
 
 [data-theme="nord"] {
@@ -58,6 +68,9 @@
     --task-bg: #434c5e;
     --task-border: #4c566a;
     --task-hover: #3b4252;
+    --counter-bg: #434c5e;
+    --counter-text: #88c0d0;
+    --counter-border: #4c566a;
 }
 
 [data-theme="rose-pink"] {
@@ -81,6 +94,9 @@
     /* Light rose - subtle borders */
     --task-hover: #ffe9ee;
     /* Soft pink - gentle hover effect */
+    --counter-bg: #ffe9ee;
+    --counter-text: #e75480;
+    --counter-border: #f4c2cc;
 }
 
 
@@ -225,8 +241,29 @@ body {
     transform: scale(0.95);
 }
 
+.sub-title {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
 .sub-title h4 {
     color: var(--text-primary);
+    font-size: 0.8rem;
+}
+
+.sub-title button {
+    border: none;
+    height: 20px;
+    width: 20px;
+    border-radius: 12px;
+    background-color: var(--counter-bg);
+    color: var(--counter-text);
+    border-color: var(--counter-border);
+    font-weight: bold;
+    font-size: 0.8rem; 
+
+
 }
 
 

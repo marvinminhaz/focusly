@@ -5,11 +5,19 @@ const input = document.querySelector('.input-group input');
 const addBtn = document.querySelector('.add-btn');
 const p = document.getElementById('p1')
 const listGroup = document.querySelector('.list-group');
+const counterBtn = document.querySelector('.counter');
 
 
 
 //counting tasks
 let count = 0;
+
+//displaying the count
+function updateCounter(){
+    counterBtn.textContent = count;
+}
+
+updateCounter();
 
 
 
@@ -19,6 +27,7 @@ function addTask() {
 
     if (taskText !== '') {
         count++;
+        updateCounter();
     }
 
     console.log(count);
@@ -142,5 +151,7 @@ listGroup.addEventListener('click', (e) => {
     if (e.target.classList.contains('delete-btn')) {
         e.preventDefault();
         e.target.closest('.task-item').remove();
+        count--;
+        updateCounter();
     }
 });
