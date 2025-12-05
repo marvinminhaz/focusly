@@ -55,10 +55,14 @@ function addTask() {
         checkbox.type = 'checkbox';
         const taskParagraph = document.createElement('p');
         taskParagraph.textContent = taskText;
+        const deleteBtn = document.createElement("button");
+        deleteBtn.className = 'delete-btn';
+        deleteBtn.textContent = 'x';
 
         //appending
         taskItem.appendChild(checkbox);
         taskItem.appendChild(taskParagraph);
+        taskItem.appendChild(deleteBtn);
         listGroup.appendChild(taskItem);
 
         //clearing input
@@ -130,4 +134,13 @@ themeBtns.forEach(btn => {
         // Save preference
         localStorage.setItem('theme', theme);
     });
+});
+
+
+//delete button functionality, event delegation
+listGroup.addEventListener('click', (e) => {
+    if (e.target.classList.contains('delete-btn')) {
+        e.preventDefault();
+        e.target.closest('.task-item').remove();
+    }
 });
