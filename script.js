@@ -7,6 +7,7 @@ const p = document.getElementById('p1')
 const listGroup = document.querySelector('.list-group');
 
 
+
 //counting tasks
 let count = 0;
 
