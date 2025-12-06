@@ -47,10 +47,20 @@ Themes:
 ## 📸 Screenshots
 
 ```
-/assets/screenshots/screenshot-fresh-mint.png 
+<img width="1684" height="859" alt="screenshot-fresh-mint" src="https://github.com/user-attachments/assets/463685a0-1fcf-42e1-b0e7-83b46f26e6a0" />
+
+/assets/screenshots/screenshot-fresh-mint.png
+<img width="1401" height="835" alt="screenshot-nord" src="https://github.com/user-attachments/assets/609a777d-e4bf-461c-bcc9-2739d371f183" />
+
 /assets/screenshots/screenshot-nord.png
+<img width="1488" height="798" alt="screenshot-solarized" src="https://github.com/user-attachments/assets/49c0723c-d37c-4ffd-b071-2ded4e00d6f7" />
+
 /assets/screenshots/screenshot-solarized.png
+<img width="1509" height="810" alt="screenshot-tokyo-night" src="https://github.com/user-attachments/assets/dfe71607-7fd7-45fd-91ad-a8318b8d95ec" />
+
 /assets/screenshots/screenshot-toyko-night.png
+<img width="1589" height="864" alt="screenshot-rose-pink" src="https://github.com/user-attachments/assets/4845a75d-fa89-4dc3-a5e8-472435bce496" />
+
 /assets/screenshots/screenshot-rose-pink.png
 ```
 
